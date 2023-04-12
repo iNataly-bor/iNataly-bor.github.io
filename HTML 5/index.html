@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../CSS/Login-Estudiante.css"> <!-- CSS Login -->
+</head>
+<body>
+    <!-- Inicio Login -->
+    <div class="container" >
+        <div class="box">
+
+            <h1>Inicie sesión como estudiante</h1> <!-- Título -->
+
+            <form action="home-Estudiante.html"> <!-- Para que al presionar "iniciar sesión" te lleve al home -->
+                <label>Usuario</label> <!-- Título input usuario -->
+
+                <div>
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" placeholder="ingrese su usuario"> <!-- Placeholder Usuario -->
+                </div>
+
+                <label>Contraseña</label> <!-- Título unput contraseña -->
+
+                <div>
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" placeholder="Ingrese su contraseña"><!-- Placeholder contraseña -->
+                </div>
+
+                <a href="recuperar-contrasegna.html" class="forgot">Olvidé mi contraseña</a> <!-- Link hacia "recuperar-contrasegna.html" -->
+
+                <input type="submit" value="Login"> <!-- Botón iniciar sesión -->
+
+                <a href="login-Docente.html" class="sign-up">Soy docente</a> <!-- ir a la vista de profesor -->
+            </form>
+        </div>
+    </div>
+</body>
+</html>

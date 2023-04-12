@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto inasistencia </title>
+
+    <!-- Inicio links CSS -->
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- link para SideMenú -->
+    <link rel="stylesheet" href="../CSS/SideMenú.css">
+
+    <!-- Link para el formulario ingreso de justificación -->
+    <link rel="stylesheet" href="../CSS/Formulario-Soli-Ina.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> <!-- API validaciones -->
+
+    <!-- Fin links CSS -->
+</head>
+
+<body>
+    <!-- Inicio bar and cancel button -->
+    <input type="checkbox" id="check" />
+    <label for="check">
+        <i class="fa fa-bars" id="bar"></i> <!-- &nbsp; &nbsp; = espacio -->
+        <i class="fa fa-times" id="cancel"></i>
+    </label>
+
+    <!-- Inicio Opciones menú bar e íconos -->
+    <div class="side-bar">
+        <a href="index.html"><i class="fa fa-home"></i>Inicio</a>
+        <a href="#"><i class="fa fa-dashboard"></i>Dashboard</a>
+        <a href="#"><i class="fa fa-envelope"></i>Contacto</a>
+        <!--<a href="#"><i class="fa fa-address-book"></i>About</a>-->
+        <a href="index.html"><i class="fa fa-sign-out"></i>Cerrar sesión</a>
+    </div>
+    <!-- Fin Opciones menú bar e íconos -->
+
+    <!-- Inicio formulario ingreso de justificación -->
+    <form id="myForm" action="" method="post" autocomplete = "off">
+        <h1 aligne = "center" >Ingrese su justificación</h1>
+
+        <!-- Inicio barra de progreso -->
+        <div style="text-align:center;">
+            <span class="step" id = "step-1">1 </span>
+            <span class="step" id = "step-2">2</span>
+            <span class="step" id = "step-3">3</span>
+            <span class="step" id = "step-4">4</span>
+        </div>
+        <!-- Fin barra de progreso -->
+
+        <!-- Paso 1 INFORMACIÓN DEL USUARIO -->
+        <div class="tab" id = "tab-1">
+            <p>Información personal</p>
+            <input type = "text" placeholder="Primer y segundo nombre" name="firstname">
+            <input type = "text" placeholder="Apellido paterno y materno" name="lastname">
+            <input type = "text" placeholder="Email" name="email">
+            <input type = "text" placeholder="Número de teléfono" name="phone">
+            <div class="index-btn-wrapper">
+            <div class="index-btn" onclick="run(1, 2);">Siguiente</div>
+            </div>
+        </div>
+        <!-- Fin paso 1 INFORMACIÓN DEL USUARIO -->
+
+        <!-- Paso 2 Información de la justificación --> 
+        <div class="tab" id = "tab-2">
+            <p>Información de la justificación</p>
+                <input type="checkbox" id="Tipo1" name="Tipo1" value="Tipo1">
+                <label for="Tipo1"> Justificación médica</label><br>
+
+                <input type="checkbox" id="Tipo2" name="Tipo2" value="Tipo2">
+                <label for="Tipo2"> Justificación laboral</label><br>
+
+                <input type="checkbox" id="Tipo3" name="Tipo3" value="Tipo3">
+                <label for="Tipo3"> Justificación por deportes</label><br>
+
+                <!-- <input type="checkbox" id="Tipo4" name="Tipo4" value="Tipo4"> -->
+                <input type="checkbox" name="Tipo4">
+                <label for="Tipo4">Otro </label>
+
+                <input type = "text" placeholder="Comente su motivo de inasistencia (opcional)" name="comentario">
+
+                <!-- Aquí debes poner el calendario más o menos, en realidad, como te tinque más xd -->
+            
+            <div id="info-inasistencia">
+                        <hr>
+                        <div class="form-field">
+                            <label for="start"><strong>Elige La Fecha y Hora De Inasistencia:</strong></label>
+                            <input class="form-control" type="date" name="fecha" min="2023-03-01"
+                                max="2028-12-31">
+                        </div>
+                        <div class="form-field">
+                            <input class="form-control" type="time" name="hora" min="10:00" max="24:00">
+                        </div>
+                    </div>
+
+            <div class="index-btn-wrapper">
+            <div class="index-btn" onclick="run(2, 1);">Volver</div>
+            <div class="index-btn" onclick="run(2, 3);">Siguiente</div>
+            </div>
+        </div>
+        <!-- Fin paso 2 Información de la justificación -->
+
+        <!-- Paso 3 Envío de documentos -->
+        <div class="tab" id = "tab-3">
+            <p>Ingrese sus documentos</p>
+            <input type="file" placeholder="Inserte imagen de la justificación médica" name="justi-med">
+            <input type = "text" placeholder="Comente información extra" name="comentario">
+            <div class="index-btn-wrapper">
+            <div class="index-btn" onclick="run(3, 2);">Volver</div>
+            <div class="index-btn" onclick="run(3, 4);">Siguiente</div>
+            </div>
+        </div>
+        <!-- Fin paso 3 Envío de documentos -->
+
+        <div class="tab" id = "tab-4">
+            <p>Resumen</p>
+            <div class="index-btn-wrapper">
+            <div class="index-btn" onclick="run(4, 3);">Volver</div>
+            <button class = "index-btn" type="submit" name="submit" style = "background: #FFB800"
+            >Enviar justificación </button> <!-- Boton enviar justificación -->
+            </div>
+        </div>
+
+        <!-- IGNORAR POR AHORA -->
+        <div class="tab" id = "tab-5">
+            <div class="index-btn-wrapper">
+            <div class="index-btn" onclick="run(5, 4);">Volver</div>
+            <button class = "index-btn" type="submit" name="submit" style = "background: #FFB800"
+            >Enviar justificación </button>
+            </div>
+        </div>
+        <!-- Fin IGNORAR POR AHORA -->
+    </form>
+    <!-- Fin formulario ingreso de justificación -->
+
+    <script>
+        // Tabla por defecto
+        $(".tab").css("display", "none");
+        $("#tab-1").css("display", "block");
+
+        function run(hideTab, showTab){
+          if(hideTab < showTab){ // Si no presiona el boton regresar
+            // validación si presiona boton "siguiente"
+            var currentTab = 0;
+            x = $('#tab-'+hideTab);
+            y = $(x).find("input")
+            for (i = 0; i < y.length; i++){
+                if (y[i].value == ""){
+                $(y[i]).css("background", "#ffdddd");
+                return false;
+                }
+            }
+            }
+
+          // Progress bar
+            for (i = 1; i < showTab; i++){
+            $("#step-"+i).css("opacity", "1");
+            }
+
+          // Switch tab
+            $("#tab-"+hideTab).css("display", "none");
+            $("#tab-"+showTab).css("display", "block");
+            $("input").css("background", "#fff");
+        }
+        </script>
+</body>
+</html>
