@@ -1,1 +1,0 @@
-# iNataly-bor.github.io
